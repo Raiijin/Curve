@@ -12,6 +12,7 @@ public class TailScript : MonoBehaviour
         // przerwa pomiędzy punktami
     public float pointSpacing = .1f;
     public Transform snake;
+    public Color color = Color.red;
     //lista punktów na którym jest budowanya linia
     List<Vector2> points;
 
@@ -24,6 +25,7 @@ public class TailScript : MonoBehaviour
         line = GetComponent<LineRenderer>();
         col = GetComponent<EdgeCollider2D>();
 
+        line.material.color = color;
         //wyresetuj na początek
         points = new List<Vector2>();
         SetPoint();

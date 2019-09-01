@@ -4,13 +4,26 @@ public class Movement : MonoBehaviour
 {
     public float speed = 3f;
     public float rotationSpeed = 200f;
+    public KeyCode buttonLeft = KeyCode.A;
+    public KeyCode buttonRight = KeyCode.D;
 
     float horizontal = 0f;
 
     // Update is called once per frame
     void Update()
     {
-        horizontal = Input.GetAxisRaw("Horizontal");
+        if (Input.GetKey(buttonLeft))
+        {
+            horizontal = -1;
+        }
+        else if (Input.GetKey(buttonRight))
+        {
+            horizontal = 1;
+        }
+        else
+        {
+            horizontal = 0;
+        }
     }
 
     private void FixedUpdate()
